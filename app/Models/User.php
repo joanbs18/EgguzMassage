@@ -3,11 +3,15 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject; // Agregar esta línea
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject; 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+
 
 class User extends Authenticatable implements JWTSubject // Implementa la interfaz JWTSubject
 {
-    use Notifiable;
+    use Notifiable,HasFactory;
+ 
 
     /**
      * Los atributos que se pueden asignar de forma masiva.
