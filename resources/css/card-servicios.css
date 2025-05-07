@@ -1,0 +1,60 @@
+.entrada{
+    width: 90%;
+    margin: auto;
+}
+
+.entrada__imagen {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.entrada__imagen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-hover); /* Color negro con 50% de opacidad */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.entrada__imagen picture img {
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.entrada__imagen:hover::before {
+    opacity: 0; /* Se quita la capa de oscuridad al pasar el mouse */
+}
+
+.entrada__imagen:hover picture img {
+    transform: scale(1.1); /* Hace zoom */
+}
+
+
+
+
+.boton {
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    border: none;
+}
+
+
+
+@media (min-width: 768px) {
+    .entrada{
+       width: 100%;
+    }
+
+    .boton {
+        display: inline-block;
+
+    }
+}

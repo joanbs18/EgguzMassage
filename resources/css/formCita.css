@@ -1,0 +1,89 @@
+
+.formulario {
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 60rem;
+    background-color: var(--color-Blanco);
+    display: block;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #555555;
+    font-size: 1.4rem;
+}
+
+.formulario .input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 0.1rem solid var(--color-bordes);
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.ant-space {
+    width: 100%;
+}
+
+.input::placeholder {
+    color: #aaaaaa;
+}
+
+.horas {
+    text-align: left;
+}
+
+.bloques-horas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.hora {
+    padding: 1rem;
+    background: #ddd;
+    color: #555;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.hora:hover {
+    background: var(--color-secundario);
+    color: var(--color-Blanco);
+}
+
+.hora-elegida {
+    margin-top: 2rem;
+}
+
+.hora.seleccionada {
+    background-color: var(--color-hover);
+    font-weight: bold;
+}
+
+.sin-horas {
+    text-align: center;
+    color: red;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+}
+
+.btn__cita {
+    width: 100%;
+    background-color: var(--color-secundario);
+    color: var(--color-Blanco);
+    padding: 1rem 3rem;
+    border: none;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    transition: 0.7s;
+}
+
+.btn__cita:hover {
+    cursor: pointer;
+    background-color: var(--color-portada);
+}

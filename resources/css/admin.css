@@ -1,0 +1,86 @@
+
+
+.sidebar {
+    position: fixed;
+    width: 0rem;
+    height: 100%;
+    background-color: var(--color-Blanco);
+    padding: 2rem 0;
+    top: 0;
+    left: 0;
+    margin-top: 8rem;
+    transition: width 0.5s ease;
+}
+
+.sidebar--open {
+    width: 25rem;
+}
+
+.sidebar__titulo {
+    color: var(--color-primario);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-primario);
+    font-size: 1.6rem;
+
+    margin: 0 0.5rem;
+
+    gap: 1rem;
+    padding: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebar__link .svg {
+    color: var(--color-primario);
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.sidebar__link:hover {
+    color: var(--color-secundario);
+}
+
+.main-content {
+    transition: margin-left 0.5s ease;
+    margin: 1rem;
+}
+
+@media (min-width: 768px) {
+    .main--open {
+        margin-left: 26rem;
+    }
+}
+
+.title__section{
+    max-width: 120rem;
+    margin: auto;
+    margin-top: 11rem;
+}
+
+.admin__citas {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    max-width: 120rem;
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .admin__citas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+.card__full{
+    grid-column: span 3;
+}
+
+}
+

@@ -1,0 +1,55 @@
+.table-container {
+    overflow-x: auto;
+    max-width: 120rem;
+    margin: auto;
+}
+
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-table th {
+    background-color: var(--color-Blanco);
+    font-weight: bold;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.custom-table button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.btn_table{
+    display: flex;
+    gap: 1rem;
+}
+
+.btn_delete {
+    background-color: red;
+}
+
+.btn_edit {
+    background-color: #0056b3;
+}
+
+.btn_delete:hover {
+    background-color: rgb(239, 140, 140);
+}
+
+.btn_edit:hover {
+    background-color: #7ca9d9;
+}
+

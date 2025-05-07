@@ -1,0 +1,122 @@
+
+/* 
+HERO O PORTADA */
+.carousel {
+    display: flex;
+    height: calc(100vh - 15rem); 
+    width: 100%;
+  }
+  
+  .carousel_wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel_card {
+    display: flex;
+    flex: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition: 0.5s ease-in-out;
+  }
+  
+  .carousel_card-active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: visible;
+  }
+  
+  .card_image {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .card_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-portada);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card_text{
+    color: var(--color-Blanco);
+    font-family: var(--fuente-secundaria);
+  }
+  
+  .card_title {
+    color: var(--color-Blanco);
+    text-align: center;
+    font-weight: normal;
+    max-width: 95%;
+    width: 100%;
+  }
+  
+  .carousel_arrow_left,
+  .carousel_arrow_right {
+    position: absolute;
+    font-size: 3rem;
+    top: 70%;
+    transform: translate(0, -50%);
+    background-color: var(--color-Blanco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    padding-bottom: 0.7rem;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    .carousel_arrow_left,
+    .carousel_arrow_right {
+      top: 50%;
+    }
+  }
+  
+  .carousel_arrow_left {
+    left: 1.5rem;
+  }
+  
+  .carousel_arrow_right {
+    right: 1.5rem;
+  }
+  
+  .carousel_pagination {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  
+  .pagination_dot {
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--color-Blanco);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .pagination_dot:hover {
+    transform: scale(1.2);
+  }
+  
+  .pagination_dot-active {
+    background-color: var(--color-secundario);
+  }
+  
+  
+  
