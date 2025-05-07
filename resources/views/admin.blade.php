@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Masages | Egguz Massage</title>
     @viteReactRefresh
-    @vite("resources/js/app.js")
+    @vite("resources/js/main.jsx")
   </head>
   <body style="background: #f3f4f6;">
     <div id="root"></div>

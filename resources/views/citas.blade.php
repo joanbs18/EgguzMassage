@@ -11,7 +11,7 @@
     <title>Masages | Egguz Massage</title>
     <link rel="preload" as="image" href="/images/portada.webp">
     @viteReactRefresh
-    @vite("resources/js/app.js")
+    @vite("resources/js/main.jsx")
   </head>
   <body>
     <div id="root"></div>
