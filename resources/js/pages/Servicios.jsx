@@ -16,7 +16,7 @@ export default function Servicios() {
 
     // Función para obtener los servicios
     const fetchServicios = async () => {
-        const response = await fetch("http://localhost:8000/api/servicios");
+        const response = await fetch("https://egguzmassage.com/api/servicios");
         if (!response.ok) {
             throw new Error("Error al obtener los datos");
         }
@@ -33,7 +33,7 @@ export default function Servicios() {
     const mutation = useMutation({
         mutationFn: async (nuevoServicio) => {
             const response = await fetch(
-                "http://localhost:8000/api/servicios",
+                "https://egguzmassage.com/api/servicios",
                 {
                     method: "POST",
                     headers: {
@@ -75,7 +75,7 @@ export default function Servicios() {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8000/api/servicios/${id}`, {
+            const response = await fetch(`https://egguzmassage.com/api/servicios/${id}`, {
                 method: "DELETE",
             });
     
