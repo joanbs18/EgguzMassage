@@ -29,17 +29,12 @@ export default defineConfig({
                 drop_debugger: true,
             },
         },
-        rollupOptions: {
-            output: {
-                manualChunks(id) {
-                    if (id.includes('node_modules')) {
-                        if (id.includes('antd')) return 'vendor_antd';
-                        if (id.includes('react')) return 'vendor_react';
-                        return 'vendor';
-                    }
-                },
-            },
-        },
+      rollupOptions: {
+    output: {
+        manualChunks: undefined
+    }
+},
+
     },
     define: {
         'process.env': {},
