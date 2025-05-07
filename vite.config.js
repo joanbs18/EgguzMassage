@@ -6,7 +6,7 @@ import compression from 'vite-plugin-compression';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/js/app.js'], // ajusta según tu entrada principal
+            input: ['resources/js/main.jsx'], // ajusta según tu entrada principal
             refresh: true,
         }),
         react(),
