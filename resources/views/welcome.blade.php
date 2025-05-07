@@ -11,7 +11,7 @@
   
     <title>Masages | Egguz Massage</title>
     @viteReactRefresh
-    @vite("resources/js/main.jsx")
+    @vite("resources/js/app.js")
   </head>
   <body>
     <div id="root"></div>
