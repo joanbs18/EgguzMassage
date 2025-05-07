@@ -29,11 +29,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        // Autologin
-        $token = JWTAuth::fromUser($user);
-        $cookie = cookie('token', $token, 60, null, null, true, true, false, 'Strict');
 
-        return response()->json(['message' => 'Usuario registrado y logueado'])->withCookie($cookie);
+        return response()->json(['message' => 'Usuario registrado y logueado']);
     }
 
     /**
