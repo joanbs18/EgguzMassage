@@ -54,11 +54,13 @@ class AuthController extends Controller
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Could not create token'], 500);
+            return response()->json(['error' => 'Server error. Try again later.'], 500);
+
         }
     
         // Crear la cookie con el token (expiración de 60 minutos, para mayor seguridad, puedes hacer que la cookie sea solo accesible a través de HTTP)
-        $cookie = cookie('token-auth', $token, 60, '/', null, false, false, false, null);
+        $cookie = cookie('token-auth', $token, 60, '/', null, true, true, false, 'Strict');
+
     
         // Retornar el token en la respuesta con la cookie
         // return response()->json(['message' => 'Login exitoso'])->withCookie($cookie);
