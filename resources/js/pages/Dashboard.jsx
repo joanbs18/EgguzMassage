@@ -4,24 +4,24 @@ import Card_Cita from "../components/Card-Cita";
 import Titulo from "../components/Titulo";
 
 const fetchCitasMensuales = async () => {
-    const response = await fetch("https://egguzmassage.com/api/citas/mensuales");
+    const response = await fetch("http://localhost:8000/api/citas/mensuales");
     if (!response.ok) throw new Error("Error al obtener citas mensuales");
     return response.json();
 };
 
 const fetchCitasCount = async () => {
-    const response = await fetch("https://egguzmassage.com/api/citas/count");
+    const response = await fetch("http://localhost:8000/api/citas/count");
     if (!response.ok) throw new Error("Error al obtener citas");
     return response.json();
 };
 
 const fetchClientesCount = async () => {
-    const response = await fetch("https://egguzmassage.com/api/citas/clientes");
+    const response = await fetch("http://localhost:8000/api/citas/clientes");
     if (!response.ok) throw new Error("Error al obtener clientes");
     return response.json();
 };
 const fetchClienteNombre = async () => {
-    const response = await fetch("https://egguzmassage.com/api/citas/cliente-mas-citas");
+    const response = await fetch("http://localhost:8000/api/citas/cliente-mas-citas");
     if (!response.ok) throw new Error("Error al obtener clientes");
     return response.json();
 };

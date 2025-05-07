@@ -1,26 +1,109 @@
+import { useState } from "react";
 import "../../css/contacto.css";
 import Footer from "../components/Footer";
-
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
+    const [nombre, setNombre] = useState("");
+    const [numero, setNumero] = useState("");
+    const [mensaje, setMensaje] = useState("");
+    const [captcha, setCaptcha] = useState("");
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch("http://localhost:8000/api/contacto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({ nombre, numero, mensaje, captcha }),
+
+        });
+
+        if (response.ok) {
+            alert("Mensaje enviado con éxito");
+            setNombre("");
+            setNumero("");
+            setMensaje("");
+        } else {
+            alert("Ocurrió un error al enviar el mensaje");
+        }
+    };
+
     return (
         <>
             <section className="hero-contacto">
                 <div className="titulo_section">
-                    <h1 className="titulo">Contacto</h1>
+                    <h1 className="titulo">Contáctanos</h1>
                 </div>
             </section>
-            <section className="maps">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31387.985561154193!2d-84.99210496529818!3d10.461336291301814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9ff8c0c0eb6849%3A0x3fb8283bfa1fdc03!2sProvincia%20de%20Guanacaste%2C%20Tilar%C3%A1n!5e0!3m2!1ses!2scr!4v1745727995171!5m2!1ses!2scr"
-                    width="100%"
-                    height="400"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+          
+            <section className="contacto">
+                <div className="contacto__container">
+                    <div className="box-contacto">
+                        <h2 className="contacto__titulo">
+                            Relájate con Nosotros
+                        </h2>
+                        <p className="contacto__subtitulo">
+                            ¿Buscas un momento de relajación y bienestar?
+                        </p>
+                        <p className="contacto__texto">
+                            Contáctanos para disfrutar de nuestros masajes
+                            personalizados.
+                            <br />
+                            <br />
+                            Nuestro equipo de expertos está aquí para ofrecerte
+                            una experiencia única.
+                        </p>
+                    </div>
+
+                    <form
+                        className="contacto__formulario"
+                        onSubmit={handleSubmit}
+                    >
+                        <label htmlFor="nombre">Nombre:</label>
+                        <input
+                            className="input"
+                            type="text"
+                            name="nombre"
+                            value={nombre}
+                            onChange={(e) => setNombre(e.target.value)}
+                            placeholder="Ingresa tu nombre completo"
+                            required
+                        />
+                        <label htmlFor="numero">Número de Teléfono:</label>
+                        <input
+                            className="input"
+                            type="text"
+                            name="numero"
+                            value={numero}
+                            onChange={(e) => setNumero(e.target.value)}
+                            placeholder="Ingresa tu número de teléfono"
+                            required
+                        />
+                        <textarea
+                            className="input"
+                            placeholder="Mensaje"
+                            value={mensaje}
+                            onChange={(e) => setMensaje(e.target.value)}
+                            required
+                        ></textarea>
+                        <ReCAPTCHA style={{ margin: "auto" }}
+                            sitekey="6Ld26jErAAAAAO6URmH91Fb1U1YVnwTHSqRjzqg0"
+                            onChange={(value) => setCaptcha(value)}
+                        />
+
+                        <button type="submit" className="boton--primario">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
             </section>
+
+            <section className="maps">{/* Tu iframe sigue igual */}</section>
 
             <Footer />
         </>

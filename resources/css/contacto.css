@@ -27,3 +27,40 @@
 .maps{
     width: 100%;
 }
+
+.contacto{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.contacto__titulo {
+    color: var(--color-secundario);
+    margin-bottom: 1rem;
+}
+
+.contacto__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.contacto__subtitulo{
+    font-family: var(--fuente-secundaria);
+    font-size: 2.5rem;
+}
+
+.contacto__texto {
+    width: 100%;
+    max-width: 50rem;
+    font-size: 1.8rem;
+ 
+}
+
+.contacto__formulario{
+    width: 100%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+}

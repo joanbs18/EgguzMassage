@@ -4,3 +4,4 @@ require base_path('routes/ClienteRoute.php');
 require base_path('routes/ServicioRoute.php');
 require base_path('routes/DisponibilidadRoute.php');
 require base_path('routes/AuthRoute.php');
+require base_path('routes/ContactoRoute.php');

@@ -42,7 +42,7 @@ const FormCita = () => {
     const horasDisponibles = async (fecha, dia) => {
         try {
             const response = await fetch(
-                `https://egguzmassage.com/api/disponibilidad/horas-horario/${fecha}/${dia}`
+                `http://localhost:8000/api/disponibilidad/horas-horario/${fecha}/${dia}`
             );
             if (!response.ok) {
                 throw new Error("Error al obtener las horas disponibles");
@@ -79,7 +79,7 @@ const FormCita = () => {
         }
 
         try {
-            const response = await fetch("https://egguzmassage.com/api/citas", {
+            const response = await fetch("http://localhost:8000/api/citas", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -170,7 +170,7 @@ const FormCita = () => {
             <label htmlFor="select">Servicio:</label>{" "}
             {/* Cambié especialidad a servicio */}
             <CustomSelect
-                apiUrl="https://egguzmassage.com/api/servicios"
+                apiUrl="http://localhost:8000/api/servicios"
                 valueKey="id_servicio"
                 labelKey="nombre_servicio"
                 value={servicio} // Cambié especialidad a servicio

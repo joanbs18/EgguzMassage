@@ -14,7 +14,7 @@ export default function GestionCitas() {
     const queryClient = useQueryClient();
 
     const fetchCitas = async () => {
-        const response = await fetch("https://egguzmassage.com/api/citas");
+        const response = await fetch("http://localhost:8000/api/citas");
         if (!response.ok) {
             throw new Error("Error al obtener los datos");
         }
@@ -27,7 +27,7 @@ export default function GestionCitas() {
     });
 
     const fetchCitasHoy = async () => {
-        const response = await fetch("https://egguzmassage.com/api/citas/hoy");
+        const response = await fetch("http://localhost:8000/api/citas/hoy");
         if (!response.ok) {
             throw new Error("Error al obtener los datos");
         }
@@ -42,7 +42,7 @@ export default function GestionCitas() {
 
     const handleDelete = async (idCita) => {
         try {
-            const response = await fetch(`https://egguzmassage.com/api/citas/${idCita}`, {
+            const response = await fetch(`http://localhost:8000/api/citas/${idCita}`, {
                 method: 'DELETE',
             });
 

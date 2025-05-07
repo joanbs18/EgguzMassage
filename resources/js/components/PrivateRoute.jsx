@@ -4,7 +4,7 @@ const PrivateRoute = ({ children }) => {
     const { data, isLoading, error } = useQuery({
         queryKey: ['checkAuth'],
         queryFn: async () => {
-            const res = await fetch("https://egguzmassage.com/api/check-auth", {
+            const res = await fetch("http://localhost:8000/api/check-auth", {
                 credentials: "include",
             });
             if (!res.ok) {

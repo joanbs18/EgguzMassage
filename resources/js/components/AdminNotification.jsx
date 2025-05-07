@@ -10,7 +10,7 @@ export default function AdminNotification() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["adminWelcome"],
     queryFn: async () => {
-      const response = await axios.get("https://egguzmassage.com/api/citas/proxima");
+      const response = await axios.get("http://localhost:8000/api/citas/proxima");
       return response.data;
     },
   });

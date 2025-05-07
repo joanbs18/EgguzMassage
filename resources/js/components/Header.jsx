@@ -104,7 +104,7 @@ export default function Header() {
                         <Link to="/">Inicio</Link>
                         <Link to="/nosotros">Nosotros</Link>
                         <Link to="/servicios">Servicios</Link>
-                        <Link to="/ofertas">Ofertas</Link>
+                        {/* <Link to="/ofertas">Ofertas</Link> */}
                         <Link to="/contacto">Contacto</Link>
                     </div>
                    

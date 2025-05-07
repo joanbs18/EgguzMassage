@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 const fetchProximaCita = async () => {
-    const response = await fetch("https://egguzmassage.com/api/citas/proxima");
+    const response = await fetch("http://localhost:8000/api/citas/proxima");
 
     if (!response.ok) {
         throw new Error("Error al obtener la cita");

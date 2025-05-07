@@ -6,7 +6,7 @@ import Titulo from "../components/Titulo";
 
 export default function Clientes() {
     const fetchClientes = async () => {
-        const response = await fetch("https://egguzmassage.com/api/citas/cliente-unicos");
+        const response = await fetch("http://localhost:8000/api/citas/cliente-unicos");
 
 
         if (!response.ok) {
