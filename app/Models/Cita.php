@@ -57,6 +57,12 @@ public static function clientesUnicos()
     return DB::select("CALL clientesUnicos()");
 }
 
+public static function citasPorMes()
+{
+    return DB::select('CALL sp_citas_por_mes()');
+}
+
+
 
 
     // Ya no es necesario tener la relación con Cliente, ya que la información del cliente está incluida en la tabla 'cita'

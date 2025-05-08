@@ -56,3 +56,9 @@
     stroke-dasharray: 20 300;
     stroke-dashoffset: -32.42;
 }
+
+.info__header__user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

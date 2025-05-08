@@ -1,8 +1,8 @@
 const WhatsAppBtn = () => {
     return (
         <a
-            href="https://wa.me/message/UVBR6ZP6ST3FE1"
-            class="btn__whattsapp"
+            href="https://wa.me/50688494151?text=Hola%20quiero%20más%20información"
+            className="btn__whattsapp"
             aria-label="Enviar mensaje por WhatsApp"
         >
             <svg

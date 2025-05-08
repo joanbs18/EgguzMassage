@@ -82,7 +82,7 @@ export default function Header() {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        elberth@gmai.com
+                        elberth@egguzmassage.com
                     </p>
                 </div>
                 <nav className="nav">

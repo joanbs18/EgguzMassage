@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
-import { Button, message, Popconfirm } from "antd";
+import { useState, useEffect } from "react";
+import { Button, message, Popconfirm, Modal } from "antd";
 import Delete from "../../icons/delete";
 import Pencil from "../../icons/pencil";
 import Table from "../components/Table";
@@ -11,6 +11,9 @@ export default function Servicios() {
     const [nombre, setNombre] = useState("");
     const [duracion, setDuracion] = useState("");
     const [descripcion, setDescripcion] = useState("");
+
+    const [editingId, setEditingId] = useState(null); // ID del servicio que se está editando
+    const [isModalOpen, setIsModalOpen] = useState(false); // Controla la visibilidad del modal
 
     const queryClient = useQueryClient();
 
@@ -50,9 +53,7 @@ export default function Servicios() {
             return response.json();
         },
         onSuccess: () => {
-            // Refrescar la lista de servicios después de la inserción
             queryClient.invalidateQueries(["servicios"]);
-            // Limpiar los campos
             setNombre("");
             setDuracion("");
             setDescripcion("");
@@ -60,31 +61,90 @@ export default function Servicios() {
     });
 
     // Manejo del formulario
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validación simple
         if (!nombre || !duracion || !descripcion) {
             alert("Todos los campos son obligatorios");
             return;
         }
 
-        // Insertar servicio
-        mutation.mutate({ nombre_servicio: nombre, duracion, descripcion });
+        const servicioData = {
+            nombre_servicio: nombre,
+            duracion,
+            descripcion,
+        };
+
+        try {
+            if (editingId) {
+                // ACTUALIZACIÓN (PUT)
+                const response = await fetch(
+                    `https://egguzmassage.com/api/servicios/${editingId}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(servicioData),
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Error al actualizar el servicio");
+                }
+
+                message.success("Servicio actualizado con éxito");
+            } else {
+                // CREACIÓN (POST)
+                const response = await fetch(
+                    "https://egguzmassage.com/api/servicios",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(servicioData),
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Error al insertar el servicio");
+                }
+
+                message.success("Servicio creado con éxito");
+            }
+
+            // Limpiar campos y estados
+            setNombre("");
+            setDuracion("");
+            setDescripcion("");
+            setEditingId(null);
+          
+
+            // Refrescar datos
+            queryClient.invalidateQueries(["servicios"]);
+            setIsModalOpen(false);
+        } catch (err) {
+            message.error(err.message || "Ocurrió un error");
+            console.error(err);
+        }
     };
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`https://egguzmassage.com/api/servicios/${id}`, {
-                method: "DELETE",
-            });
-    
+            const response = await fetch(
+                `https://egguzmassage.com/api/servicios/${id}`,
+                {
+                    method: "DELETE",
+                }
+            );
+
             if (!response.ok) {
                 throw new Error("Error al eliminar el servicio");
             }
-    
+
             message.success("Servicio eliminado con éxito");
-    
+
             // Refrescar la tabla después de eliminar
             queryClient.invalidateQueries(["servicios"]);
         } catch (error) {
@@ -92,7 +152,14 @@ export default function Servicios() {
             console.error(error);
         }
     };
-    
+
+    const openModalToEdit = (row) => {
+        setNombre(row.nombre_servicio);
+        setDuracion(row.duracion);
+        setDescripcion(row.descripcion);
+        setEditingId(row.id_servicio);
+        setIsModalOpen(true); 
+    };
 
     if (isLoading) return <p>Cargando...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -120,11 +187,7 @@ export default function Servicios() {
                             <td className="btn_table">
                                 <button
                                     className="btn_edit"
-                                    onClick={() =>
-                                        alert(
-                                            `Editar Servicio: ${row.nombre_servicio}`
-                                        )
-                                    }
+                                    onClick={() => openModalToEdit(row)}
                                 >
                                     <Pencil />
                                 </button>
@@ -200,6 +263,58 @@ export default function Servicios() {
         <>
             <Titulo titulo="Gestión Servicios" />
             <Tab items={items} />
+
+            <Modal
+                title={editingId ? "Actualizar Servicio" : "Crear Servicio"}
+                open={isModalOpen}
+                onOk={handleSubmit}
+                onCancel={() => setIsModalOpen(false)}
+                okText={mutation.isLoading ? "Guardando..." : "Confirmar"}
+                cancelText="Cancelar"
+                okButtonProps={{
+                    className: "btn-confirmar"
+                }}
+                cancelButtonProps={{
+                    className: "btn-cancelar"
+                }}
+            >
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="nombre">Nombre Servicio:</label>
+                    <input
+                        className="input"
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ingresa el nombre del servicio"
+                        required
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                    />
+
+                    <label htmlFor="duracion">Duración (Minutos):</label>
+                    <input
+                        className="input"
+                        type="number"
+                        id="duracion"
+                        name="duracion"
+                        placeholder="Ingresa la duración en minutos"
+                        required
+                        value={duracion}
+                        onChange={(e) => setDuracion(e.target.value)}
+                    />
+
+                    <label htmlFor="descripcion">Descripción:</label>
+                    <textarea
+                        className="input"
+                        id="descripcion"
+                        name="descripcion"
+                        placeholder="Ingresa la descripción del servicio"
+                        required
+                        value={descripcion}
+                        onChange={(e) => setDescripcion(e.target.value)}
+                    />
+                </form>
+            </Modal>
         </>
     );
 }

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Card from "../components/Card";
 import Card_Cita from "../components/Card-Cita";
 import Titulo from "../components/Titulo";
+import BarChart from "../components/BarChart";
 
 const fetchCitasMensuales = async () => {
     const response = await fetch("https://egguzmassage.com/api/citas/mensuales");
@@ -21,7 +22,9 @@ const fetchClientesCount = async () => {
     return response.json();
 };
 const fetchClienteNombre = async () => {
-    const response = await fetch("https://egguzmassage.com/api/citas/cliente-mas-citas");
+    const response = await fetch(
+        "https://egguzmassage.com/api/citas/cliente-mas-citas"
+    );
     if (!response.ok) throw new Error("Error al obtener clientes");
     return response.json();
 };
@@ -52,6 +55,8 @@ export default function Dashboard() {
         return `${cambio.toFixed(2)}%`;
     };
 
+    console.log(clientesCount);
+
     const cambioCitas = citasData
         ? calcularCambioPorcentual(
               citasData.citas_mes_actual,
@@ -63,14 +68,26 @@ export default function Dashboard() {
         <>
             <Titulo titulo="Dashboard" />
             <div className="admin__citas">
+                <Card_Cita />
+                <BarChart />
                 <Card
                     titulo="Cantidad de Citas"
                     cantidad={citasCount?.total_citas || 0}
                     descripcion={`Cambio: ${cambioCitas}`}
                 />
-                <Card titulo="Cantidad de Clientes" cantidad={clientesCount?.total_clientes || 0} />
-                <Card titulo="Cliente Frecuente" cantidad={nombreCliente?.cliente_nombre || "No hay clientes"} descripcion={`Total citas: ${nombreCliente?.total_citas || 0}`}/>
-                <Card_Cita />
+                <Card
+                    titulo="Cantidad de Clientes"
+                    cantidad={clientesCount?.total_clientes_unicos || 0}
+                />
+                <Card
+                    titulo="Cliente Frecuente"
+                    cantidad={
+                        nombreCliente?.cliente_nombre || "No hay clientes"
+                    }
+                    descripcion={`Total citas: ${
+                        nombreCliente?.total_citas || 0
+                    }`}
+                />
             </div>
         </>
     );

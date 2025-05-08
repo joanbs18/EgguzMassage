@@ -177,4 +177,19 @@ class CitaController extends Controller
         $clientes = Cita::clientesUnicos();
         return response()->json($clientes);
     }
+
+    public function citasPorMes()
+{
+    $citasPorMes = Cita::citasPorMes();
+
+    if (isset($citasPorMes[0]->message)) {
+        return response()->json(['message' => $citasPorMes[0]->message], 200);
+    }
+
+    // Si no hay citas, devolver un mensaje
+    if (empty($citasPorMes)) {
+        return response()->json(['message' => 'No hay citas registradas'], 200);
+    }
+   return response()->json($citasPorMes);
+}
 }

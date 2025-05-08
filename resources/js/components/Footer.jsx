@@ -8,7 +8,8 @@ export default function Footer() {
                 <div className="footer_info">
                     <h3>Egguz Massage</h3>
                     <p>
-                        Relájate y renueva tu energía con nuestros masajes exclusivos.
+                        Relájate y renueva tu energía con nuestros masajes
+                        exclusivos.
                     </p>
                 </div>
 
@@ -29,20 +30,21 @@ export default function Footer() {
 
                 <div className="footer_social">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31387.985561154193!2d-84.99210496529818!3d10.461336291301814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9ff8c0c0eb6849%3A0x3fb8283bfa1fdc03!2sProvincia%20de%20Guanacaste%2C%20Tilar%C3%A1n!5e0!3m2!1ses!2scr!4v1745727995171!5m2!1ses!2scr"
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3923.415429490859!2d-84.9706383249625!3d10.467880189662775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDI4JzA0LjQiTiA4NMKwNTgnMDUuMCJX!5e0!3m2!1ses!2scr!4v1746656692017!5m2!1ses!2scr"
                         width="100%"
-                        height="auto"
+                        height="250"
                         style={{ border: 0 }}
-                        allowFullScreen
+                        allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
+                    />
                 </div>
             </div>
             <hr />
             <p>
-                &copy; {new Date().getFullYear()} Egguz Massage - Desarrollado por{" "}
-                <a href="#">Shircode</a> {/* Aquí podrías también usar <Link> si quieres */}
+                &copy; {new Date().getFullYear()} Egguz Massage - Desarrollado
+                por <a href="#">Shircode</a>{" "}
+                {/* Aquí podrías también usar <Link> si quieres */}
             </p>
         </footer>
     );

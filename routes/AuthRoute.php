@@ -7,8 +7,7 @@ use App\Http\Controllers\AuthController;
 
 
 // Otras rutas públicas
-Route::middleware('throttle:5,1')->post('/login', [AuthController::class, 'login']);
-
+Route::post('/login', [AuthController::class, 'login']);
 // Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware([JWTMiddleware::class])->group(function () {

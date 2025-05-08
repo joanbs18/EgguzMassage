@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Validator;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Log;
+use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenExpiredException;
+use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
+
 
 class AuthController extends Controller
 {
@@ -36,40 +36,44 @@ class AuthController extends Controller
     /**
      * Login de usuarios
      */
-   /**
-     * Login de usuarios
-     */
     public function login(Request $request)
     {
-     
-        // Comprobar si el email y la contraseña están presentes
+
+      
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
         ]);
-    
-        // Intentar generar el token para el usuario
+
+        
         try {
             if (!$token = JWTAuth::attempt($request->only('email', 'password'))) {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Server error. Try again later.'], 500);
-
+            return response()->json(['error' => 'Could not create token'], 500);
         }
-    
-        // Crear la cookie con el token (expiración de 60 minutos, para mayor seguridad, puedes hacer que la cookie sea solo accesible a través de HTTP)
-        $cookie = cookie('token-auth', $token, 60, '/', null, true, true, false, 'Strict');
 
     
-        // Retornar el token en la respuesta con la cookie
-        // return response()->json(['message' => 'Login exitoso'])->withCookie($cookie);
+        $cookie = cookie(
+            'token-auth',
+            $token,
+            60,
+            '/',
+            null,
+            true,   // secure
+            true,   // httpOnly
+            false,  // raw
+            'strict'
+        );
+
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
         ])->withCookie($cookie);
     }
-    
+
 
     /**
      * Logout: invalidar el token
@@ -77,14 +81,29 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         try {
-            $token = $request->cookie('token');
+            $token = $request->cookie('token-auth');
+
+            if (!$token) {
+                return response()->json(['message' => 'Token no encontrado.'], 400);
+            }
+
             JWTAuth::setToken($token)->invalidate();
         } catch (JWTException $e) {
             return response()->json(['message' => 'Error al cerrar sesión.'], 500);
         }
 
         // Eliminar la cookie
-        $cookie = cookie('token', '', -1);
+        $cookie = cookie(
+            'token-auth',
+            '',
+            -1,
+            '/',
+            null,
+            true,
+            true,
+            false,
+            'Strict'
+        );
 
         return response()->json(['message' => 'Sesión cerrada'])->withCookie($cookie);
     }
@@ -101,10 +120,24 @@ class AuthController extends Controller
 
     public function checkAuth(Request $request)
     {
-        if ($request->user()) {
-            return response()->json(['authenticated' => true]);
-        }
+        try {
+            // Extraer el token desde la cookie
+            $token = $request->cookie('token-auth');
 
-        return response()->json(['authenticated' => false]);
+            if (!$token) {
+                return response()->json(['authenticated' => false, 'message' => 'Token no encontrado'], 401);
+            }
+
+            // Pasar el token manualmente
+            $user = JWTAuth::setToken($token)->authenticate();
+
+            return response()->json(['authenticated' => true]);
+        } catch (TokenExpiredException $e) {
+            return response()->json(['authenticated' => false, 'message' => 'Token expirado'], 401);
+        } catch (TokenInvalidException $e) {
+            return response()->json(['authenticated' => false, 'message' => 'Token inválido'], 401);
+        } catch (JWTException $e) {
+            return response()->json(['authenticated' => false, 'message' => 'Error al procesar el token'], 401);
+        }
     }
 }
