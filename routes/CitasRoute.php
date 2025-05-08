@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CitaController;
-use App\Http\Middleware\JWTMiddleware;
+use App\Http\Middleware\JwtMiddleware;
 
 Route::prefix('citas')->group(function () {
 
     // Aplicar límite de 2 peticiones por minuto a creación de citas
     Route::post('/', [CitaController::class, 'store']);
 
-    Route::middleware([JWTMiddleware::class, 'throttle:60,1'])->group(function () {
+    Route::middleware([JwtMiddleware::class, 'throttle:60,1'])->group(function () {
         Route::get('/', [CitaController::class, 'index']);
         Route::get('/count', [CitaController::class, 'count']);
         Route::get('/hoy', [CitaController::class, 'indexHoy']);

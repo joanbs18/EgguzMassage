@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DisponibilidadController;
-use App\Http\Middleware\JWTMiddleware;
+use App\Http\Middleware\JwtMiddleware;
 
 // Rutas de Disponibilidad
 Route::prefix('disponibilidad')->group(function () {
@@ -11,7 +11,7 @@ Route::prefix('disponibilidad')->group(function () {
         ->name('disponibilidad.horasDisponibles');
 
     // 🔒 Rutas protegidas con JWTMiddleware
-    Route::middleware([JWTMiddleware::class])->group(function () {
+    Route::middleware([JwtMiddleware::class])->group(function () {
         Route::get('/', [DisponibilidadController::class, 'index'])->name('disponibilidad.index'); // Listar todas
         Route::post('/', [DisponibilidadController::class, 'store'])->name('disponibilidad.store'); // Crear nueva
         Route::get('/{id}', [DisponibilidadController::class, 'show'])->name('disponibilidad.show'); // Obtener por ID
