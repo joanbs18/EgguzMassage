@@ -2,7 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\JWTMiddleware; 
+use App\Http\Middleware\JwtMiddleware; 
 use App\Http\Controllers\AuthController;
 
 
@@ -10,7 +10,7 @@ use App\Http\Controllers\AuthController;
 Route::post('/login', [AuthController::class, 'login']);
 // Route::post('/register', [AuthController::class, 'register']);
 
-Route::middleware([JWTMiddleware::class])->group(function () {
+Route::middleware([JwtMiddleware::class])->group(function () {
     Route::get('/perfil', [AuthController::class, 'perfil']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/check-auth', [AuthController::class, 'checkAuth']);
