@@ -29,6 +29,16 @@ export default function BarChart() {
   if (isLoading) return <p>Cargando...</p>;
   if (isError) return <p>Error al cargar los datos.</p>;
 
+  // Validar que sea un array y tenga datos
+  if (!Array.isArray(data) || data.length === 0) {
+    return (
+      <div className='card card__full' style={{ width: '100%', padding: '20px' }}>
+        <h3>Citas mensuales</h3>
+        <p>No hay datos disponibles para mostrar.</p>
+      </div>
+    );
+  }
+
   const labels = data.map(item => meses[item.mes - 1]);
   const valores = data.map(item => item.total);
 
