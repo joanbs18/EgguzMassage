@@ -31,7 +31,8 @@
       <p class="dancing" style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;font-size: 3.5rem;">— El equipo de Egguz Massage</p>
 
       <p style="box-sizing: inherit;">
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Confirmación%20de%20Cita&details=Tu%20cita%20ha%20sido%20registrada%20exitosamente.&location=Egguz%20Massage%2C%20Avenida%20Principal%20123%2C%20Ciudad%20Ejemplo&dates={{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')-&gt;setTimezone('UTC')-&gt;format('Ymd\THis\Z') }}/{{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')-&gt;addHour()-&gt;setTimezone('UTC')-&gt;format('Ymd\THis\Z') }}&ctz=America%2FCosta_Rica" target="_blank" class="google-calendar-btn" style="box-sizing: inherit;text-decoration: none;background-color: #a3d4f8;color: white;font-size: 16px;font-weight: bold;padding: 12px 20px;border-radius: 5px;display: inline-block;transition: background-color 0.3s ease;margin: 10px 0;">
+        <a           href="https://www.google.com/calendar/render?action=TEMPLATE&text=Confirmación%20de%20Cita&details=Tu%20cita%20ha%20sido%20registrada%20exitosamente.&location=Egguz%20Massage%2C%20Avenida%20Principal%20123%2C%20Ciudad%20Ejemplo&dates={{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->setTimezone('UTC')->format('Ymd\THis\Z') }}/{{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->addHour()->setTimezone('UTC')->format('Ymd\THis\Z') }}&ctz=America%2FCosta_Rica"
+>
           Agendar en Google Calendar
         </a>
       </p>
