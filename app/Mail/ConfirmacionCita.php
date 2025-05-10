@@ -20,6 +20,6 @@ class ConfirmacionCita extends Mailable
     public function build()
     {
         return $this->subject('Confirmación de Cita')
-                    ->view('emails.confirmacion_cita');
+                    ->view('emails.confirmarCita');
     }
 }
