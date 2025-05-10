@@ -105,6 +105,7 @@ const FormCita = () => {
                 const errorData = await response.json(); // Captura el mensaje del backend
                 console.error("Error del servidor:", errorData);
                 if (errorData.message) {
+                    console.error("Error:", errorData.message);
                     message.error(errorData.message);
                 } else {
                     message.error("Error al crear la cita");
