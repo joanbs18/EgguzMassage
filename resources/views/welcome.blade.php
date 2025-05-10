@@ -24,8 +24,8 @@
     <!-- Open Graph: cómo se muestra al compartir -->
     <meta property="og:title" content="Masajes Profesionales | Egguz Massage" />
     <meta property="og:description" content="Descubre la experiencia Egguz Massage. Masajes relajantes y terapéuticos en un ambiente acogedor. ¡Reserva ahora!" />
-    <meta property="og:image" content="https://tusitio.com/images/og-preview.jpg" />
-    <meta property="og:url" content="https://tusitio.com" />
+    <meta property="og:image" content="https://drive.google.com/file/d/1s0Kn0uXhSCGGd9TzILhVYnxYVRNitSKq/view?usp=sharing" />
+    <meta property="og:url" content="https://drive.google.com/file/d/1s0Kn0uXhSCGGd9TzILhVYnxYVRNitSKq/view?usp=sharing" />
     <meta property="og:type" content="website" />
   
     <!-- Twitter Card -->
