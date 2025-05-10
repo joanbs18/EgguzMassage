@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmación de Cita</title>
+</head>
 <h1>Confirmación de Cita</h1>
 <p>Hola {{ $cita['cliente_nombre'] }},</p>
 
@@ -10,3 +16,5 @@
 </ul>
 
 <p>Gracias por utilizar nuestros servicios.</p>
+</body>
+</html>
