@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+
 use Illuminate\Support\ServiceProvider;
-use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,10 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Hacemos que JWTAuth busque el token directamente en la cookie 'token'
-        // JWTAuth::parser()->setRequestToken(function () {
-        //     return request()->cookie('token');
-        // });
+        RateLimiter::for('crear-cita', function (Request $request) {
+            return Limit::perMinute(3)->by($request->ip());
+        });
         
     }
 }

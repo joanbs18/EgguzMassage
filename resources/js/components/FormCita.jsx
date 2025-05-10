@@ -10,6 +10,7 @@ const FormCita = () => {
     const [cedula, setCedula] = useState("");
     const [nombre, setNombre] = useState("");
     const [telefono, setTelefono] = useState("");
+    const [descripcion, setDescripcion] = useState("");
     const [correo, setCorreo] = useState("");
     const [servicio, setServicio] = useState(""); // Cambié especialidad a servicio
     const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
@@ -57,14 +58,6 @@ const FormCita = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("Cedula:", cedula);
-        console.log("Nombre:", nombre);
-        console.log("Telefono:", telefono);
-        console.log("Correo:", correo);
-        console.log("Servicio:", servicio); // Cambié especialidad a servicio
-        console.log("Fecha seleccionada:", fechaSeleccionada);
-        console.log("Hora seleccionada:", horaSeleccionada);
-
         if (
             !cedula ||
             !nombre ||
@@ -83,12 +76,13 @@ const FormCita = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    id_cita: "", // Este campo se generará automáticamente en el backend
+                    id_cita: "",
                     cliente_cedula: cedula,
                     cliente_nombre: nombre,
                     cliente_telefono: telefono,
                     cliente_email: correo,
                     id_servicio: servicio,
+                    descripcion: descripcion,
                     fecha: fechaSeleccionada,
                     hora: horaSeleccionada,
                     estado: 1,
@@ -123,73 +117,107 @@ const FormCita = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="cedula">Cedula:</label>
-            <input
-                className="input"
-                type="number"
-                id="cedula"
-                name="cedula"
-                placeholder="Ingresa tu numero de identificación"
-                required
-                value={cedula}
-                onChange={(e) => setCedula(e.target.value)}
-            />
-            <label htmlFor="nombre">Nombre Completo:</label>
-            <input
-                className="input"
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Ingresa tu nombre"
-                required
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-            />
-            <label htmlFor="telefono">Teléfono:</label>
-            <input
-                className="input"
-                type="number"
-                id="telefono"
-                name="telefono"
-                placeholder="Ingresa tu teléfono"
-                required
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
-            />
-            <label htmlFor="correo">Correo Electrónico:</label>
-            <input
-                className="input"
-                type="email"
-                id="correo"
-                name="correo"
-                placeholder="ejemplo@correo.com"
-                required
-                value={correo}
-                onChange={(e) => setCorreo(e.target.value)}
-            />
-            <label htmlFor="select">Servicio:</label>{" "}
-            {/* Cambié especialidad a servicio */}
-            <CustomSelect
-                apiUrl="https://egguzmassage.com/api/servicios"
-                valueKey="id_servicio"
-                labelKey="nombre_servicio"
-                value={servicio} // Cambié especialidad a servicio
-                onChange={setServicio} // Cambié especialidad a servicio
-            />
-            <label htmlFor="fecha">Fecha:</label>
-            <Calendario
-                onDateSelect={(date) => obtenerDiaSemana(date)}
-                setHoras={setHoras}
-            />
-            <label htmlFor="Horas">Horas Disponibles:</label>
-            <Horas
-                horasDisponibles={horas}
-                resetHoraSeleccionada={setHoraSeleccionada}
-            />
-            <button type="submit" className="btn__cita">
-                Confirmar
-            </button>
-        </form>
+        <label htmlFor="cedula">
+            Cedula: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+            className="input"
+            type="number"
+            id="cedula"
+            name="cedula"
+            placeholder="Ingresa tu numero de identificación"
+            required
+            value={cedula}
+            onChange={(e) => setCedula(e.target.value)}
+        />
+    
+        <label htmlFor="nombre">
+            Nombre Completo: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+            className="input"
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ingresa tu nombre"
+            required
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+        />
+    
+        <label htmlFor="telefono">
+            Teléfono: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+            className="input"
+            type="number"
+            id="telefono"
+            name="telefono"
+            placeholder="Ingresa tu teléfono"
+            required
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
+        />
+    
+        <label htmlFor="correo">
+            Correo Electrónico: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+            className="input"
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="ejemplo@correo.com"
+            required
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+        />
+    
+        <label htmlFor="select">
+            Servicio: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <CustomSelect
+            apiUrl="https://egguzmassage.com/api/servicios"
+            valueKey="id_servicio"
+            labelKey="nombre_servicio"
+            value={servicio}
+            onChange={setServicio}
+        />
+    
+        <label htmlFor="descripcion">
+            Descripción: 
+        </label>
+        <textarea
+            className="input"
+            type="text"
+            id="descripcion"
+            name="descripcion"
+            placeholder="Explica brevemente el motivo de la cita"
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
+        />
+    
+        <label htmlFor="fecha">
+            Fecha: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <Calendario
+            onDateSelect={(date) => obtenerDiaSemana(date)}
+            setHoras={setHoras}
+        />
+    
+        <label htmlFor="Horas">
+            Horas Disponibles: <span style={{ color: 'red' }}>*</span>
+        </label>
+        <Horas
+            horasDisponibles={horas}
+            resetHoraSeleccionada={setHoraSeleccionada}
+        />
+    
+        <button type="submit" className="btn__cita">
+            Confirmar
+        </button>
+    </form>
+    
     );
 };
 

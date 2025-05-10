@@ -21,7 +21,11 @@ export default function Header() {
     }, []);
     return (
         <>
-            <header className={`header ${isAtTop ? "header--top" : ""}`}>
+            <header
+                className={`header ${isAtTop ? "header--top" : ""} ${
+                    menuOpen ? "header--menu-open" : ""
+                }`}
+            >
                 {" "}
                 <div className="header__superior">
                     <p>
@@ -59,7 +63,8 @@ export default function Header() {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        +506 8849 4151                    </p>
+                        +506 8849 4151{" "}
+                    </p>
                     <p>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -88,9 +93,9 @@ export default function Header() {
                 <nav className="nav">
                     <img
                         src={
-                            isAtTop
-                                ? "images/Elberth Logo-blanco.webp"
-                                : "images/Elberth Logo.webp"
+                            !isAtTop || menuOpen
+                                ? "images/Elberth Logo.webp"
+                                : "images/Elberth Logo-blanco.webp"
                         }
                         alt="Logo Egguz"
                         className="logo"
@@ -107,10 +112,13 @@ export default function Header() {
                         {/* <Link to="/ofertas">Ofertas</Link> */}
                         <Link to="/contacto">Contacto</Link>
                     </div>
-                   
 
                     <Link to="/citas">
-                        <button className={`nav__btn ${isAtTop ? "btn--top" : ""}`}>Reservar</button>
+                        <button
+                            className={`nav__btn ${isAtTop ? "btn--top" : ""}`}
+                        >
+                            Reservar
+                        </button>
                     </Link>
 
                     <label className="hamburger">

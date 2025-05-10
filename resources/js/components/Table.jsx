@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../css/table.css";
 import { Pagination } from "antd";
 
-export default function Table({ columns, renderRow, data }) {
+export default function Table({ columns, renderRow, data=[] }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 

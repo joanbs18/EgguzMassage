@@ -17,7 +17,7 @@ export default function Sidebar({ isOpen }) {
         <>
             <div className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
                 {/* <h2 className="sidebar__titulo">Administración</h2> */}
-                <Link className="sidebar__link" to="/admin/citas">
+                <Link className="sidebar__link" to="/admin">
                     <svg
                         className="svg"
                         xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export default function Sidebar({ isOpen }) {
                     </svg>
                     <span>Dashboard</span>
                 </Link>
-                <Link className="sidebar__link" to="/admin/gestion">
+                <Link className="sidebar__link" to="/admin/citas">
                     <svg
                         className="svg"
                         xmlns="http://www.w3.org/2000/svg"

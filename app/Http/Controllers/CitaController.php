@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cita;
 use Illuminate\Http\Request;
-use App\Notifications\ConfirmacionCita;
 use Illuminate\Support\Str;
+use App\Mail\ConfirmacionCita;
+use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 
 class CitaController extends Controller
@@ -17,6 +18,7 @@ class CitaController extends Controller
             'fecha' => 'required|date',
             'hora' => 'required|date_format:H:i:s',
             'estado' => 'required|boolean',
+            'descripcion' => 'string',
             'cliente_cedula' => 'required|string|max:20',
             'cliente_nombre' => 'required|string|max:100',
             'cliente_telefono' => 'required|string|max:15',
@@ -38,29 +40,40 @@ class CitaController extends Controller
 
         // Crear la cita
         $cita = Cita::create($validated);
-
+        Mail::to($validated['cliente_email'])->send(new ConfirmacionCita($validated));
         return response()->json(['message' => 'Cita creada exitosamente', 'cita' => $cita], 201);
     }
 
 
 
-    // Obtener todas las citas
+    // Obtener todas las citas (de más nueva a más vieja) incluyendo el nombre del servicio
     public function index()
     {
-        $citas = Cita::all(); // No need to load cliente or servicio relationships
+        $citas = Cita::with('servicio')
+            ->orderBy('fecha', 'desc')
+            ->orderBy('hora', 'desc')
+            ->get();
+
         return response()->json($citas, 200);
     }
 
 
     public function indexHoy()
-{
-    // Obtener la fecha actual en zona horaria de Costa Rica
-    $hoy = Carbon::now('America/Costa_Rica')->toDateString();
+    {
+        // Obtener la fecha actual en zona horaria de Costa Rica
+        $hoy = Carbon::now('America/Costa_Rica')->toDateString();
 
-    $citasHoy = Cita::where('fecha', $hoy)->get();
 
-    return response()->json($citasHoy, 200);
-}
+
+        $citasHoy = Cita::where('fecha', $hoy)->get();
+
+        if ($citasHoy->isEmpty()) {
+            return response()->json([], 200);
+        }
+
+
+        return response()->json($citasHoy, 200);
+    }
 
     // Obtener una cita por ID
     public function show($id)
@@ -80,6 +93,7 @@ class CitaController extends Controller
             'fecha' => 'date',
             'hora' => 'date_format:H:i:s',
             'estado' => 'boolean',
+            'descripcion' => 'string',
             'cliente_cedula' => 'string|max:20',
             'cliente_nombre' => 'string|max:100',
             'cliente_telefono' => 'string|max:15',
@@ -179,17 +193,17 @@ class CitaController extends Controller
     }
 
     public function citasPorMes()
-{
-    $citasPorMes = Cita::citasPorMes();
+    {
+        $citasPorMes = Cita::citasPorMes();
 
-    if (isset($citasPorMes[0]->message)) {
-        return response()->json(['message' => $citasPorMes[0]->message], 200);
-    }
+        if (isset($citasPorMes[0]->message)) {
+            return response()->json(['message' => $citasPorMes[0]->message], 200);
+        }
 
-    // Si no hay citas, devolver un mensaje
-    if (empty($citasPorMes)) {
-        return response()->json(['message' => 'No hay citas registradas'], 200);
+        // Si no hay citas, devolver un mensaje
+        if (empty($citasPorMes)) {
+            return response()->json(['message' => 'No hay citas registradas'], 200);
+        }
+        return response()->json($citasPorMes);
     }
-   return response()->json($citasPorMes);
-}
 }

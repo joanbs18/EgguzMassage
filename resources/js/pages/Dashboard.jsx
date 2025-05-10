@@ -55,7 +55,7 @@ export default function Dashboard() {
         return `${cambio.toFixed(2)}%`;
     };
 
-    console.log(clientesCount);
+    
 
     const cambioCitas = citasData
         ? calcularCambioPorcentual(

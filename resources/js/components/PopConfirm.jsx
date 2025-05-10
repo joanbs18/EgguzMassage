@@ -1,11 +1,9 @@
 import React from 'react';
 import { Button, message, Popconfirm } from 'antd';
 const confirm = e => {
-  console.log(e);
   message.success('Regisrtro eliminado');
 };
 const cancel = e => {
-  console.log(e);
   message.error('Click on No');
 };
 const App = () => (

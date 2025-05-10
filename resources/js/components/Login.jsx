@@ -31,7 +31,7 @@ const LoginForm = () => {
                     "Error al iniciar sesión: " +
                         (data.message || "Credenciales incorrectas")
                 );
-                console.log("Error:", data);
+              
             }
         } catch (error) {
             // Muestra un mensaje de error si ocurre un error de red

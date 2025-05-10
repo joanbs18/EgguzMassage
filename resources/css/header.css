@@ -59,7 +59,23 @@
     padding: 2rem;
     transition: 0.4s ease-out;
     color: var(--color-primario);
+
 }
+
+/* Cuando el menú está abierto, forzar fondo blanco */
+.header--menu-open {
+    background-color: var(--color-Blanco) !important;
+}
+
+.header--menu-open .nav__link--top a {
+    color: var(--color-primario); /* o el color que prefieras */
+}
+
+.header--menu-open .nav__btn  {
+    background-color: var(--color-secundario);
+    color: var(--color-Blanco);
+}
+
 
 .nav__link--open {
     display: flex;

@@ -31,6 +31,7 @@ export default function GestionCitas() {
         if (!response.ok) {
             throw new Error("Error al obtener los datos");
         }
+
         return response.json();
     };
 
@@ -87,6 +88,7 @@ export default function GestionCitas() {
                         columns={[
                             "Cliente",
                             "Servicio",
+                            "Motivo",
                             "Fecha",
                             "Hora",
                             "Correo",
@@ -97,7 +99,8 @@ export default function GestionCitas() {
                         renderRow={(row, index) => (
                             <tr key={index}>
                                 <td>{row.cliente_nombre}</td>
-                                <td>{row.id_servicio}</td>
+                                <td>{row.servicio.nombre_servicio}</td>
+                                <td>{row.descripcion}</td>
                                 <td>{row.fecha}</td>
                                 <td>{row.hora}</td>
                                 <td>{row.cliente_email}</td>
@@ -106,7 +109,7 @@ export default function GestionCitas() {
                                     {row.estado === 1 ? "Activa" : "Cancelada"}
                                 </td>
                                 <td className="btn_table">
-                                    <button
+                                    {/* <button
                                         className="btn_edit"
                                         onClick={() =>
                                             alert(
@@ -115,7 +118,7 @@ export default function GestionCitas() {
                                         }
                                     >
                                         <Pencil />
-                                    </button>
+                                    </button> */}
                                     <Popconfirm
                                         title="¿Eliminar cita?"
                                         description="¿Está seguro que desea eliminar esta cita?"
@@ -147,61 +150,66 @@ export default function GestionCitas() {
         {
             key: "3",
             label: "Citas para Hoy",
-            children:  <Table
-            data={citasHoy}
-            columns={[
-                "Cliente",
-                "Servicio",
-                "Fecha",
-                "Hora",
-                "Correo",
-                "Teléfono",
-                "Estado",
-                "Acción",
-            ]}
-            renderRow={(row, index) => (
-                <tr key={index}>
-                    <td>{row.cliente_nombre}</td>
-                    <td>{row.id_servicio}</td>
-                    <td>{row.fecha}</td>
-                    <td>{row.hora}</td>
-                    <td>{row.cliente_email}</td>
-                    <td>{row.cliente_telefono}</td>
-                    <td>
-                        {row.estado === 1 ? "Activa" : "Cancelada"}
-                    </td>
-                    <td className="btn_table">
-                        <button
+            children: (
+              <>
+                {isLoadingCitasHoy ? (
+                  <p>Cargando citas de hoy...</p>
+                ) : errorCitasHoy ? (
+                  <p>Error al cargar las citas de hoy</p>
+                ) : Array.isArray(citasHoy) && citasHoy.length === 0 ? (
+                  <p>No hay citas programadas para hoy.</p>
+                ) : (
+                  <Table
+                    data={citasHoy}
+                    columns={[
+                      "Cliente",
+                      "Servicio",
+                      "Fecha",
+                      "Hora",
+                      "Correo",
+                      "Teléfono",
+                      "Estado",
+                      "Acción",
+                    ]}
+                    renderRow={(row, index) => (
+                      <tr key={index}>
+                        <td>{row.cliente_nombre}</td>
+                        <td>{row.servicio.nombre_servicio}</td>
+                        <td>{row.fecha}</td>
+                        <td>{row.hora}</td>
+                        <td>{row.cliente_email}</td>
+                        <td>{row.cliente_telefono}</td>
+                        <td>{row.estado === 1 ? "Activa" : "Cancelada"}</td>
+                        <td className="btn_table">
+                          <button
                             className="btn_edit"
                             onClick={() =>
-                                alert(
-                                    `Editar Cita: ${row.cliente_nombre}`
-                                )
+                              alert(`Editar Cita: ${row.cliente_nombre}`)
                             }
-                        >
+                          >
                             <Pencil />
-                        </button>
-                        <Popconfirm
+                          </button>
+                          <Popconfirm
                             title="¿Eliminar cita?"
                             description="¿Está seguro que desea eliminar esta cita?"
-                            onConfirm={() =>
-                                handleDelete(row.id_cita)
-                            }
-                            onCancel={() =>
-                                message.info("Cancelado")
-                            }
+                            onConfirm={() => handleDelete(row.id_cita)}
+                            onCancel={() => message.info("Cancelado")}
                             okText="Sí"
                             cancelText="No"
-                        >
+                          >
                             <button className="btn_delete">
-                                <Delete />
+                              <Delete />
                             </button>
-                        </Popconfirm>
-                    </td>
-                </tr>
-            )}
-        />,
-        },
+                          </Popconfirm>
+                        </td>
+                      </tr>
+                    )}
+                  />
+                )}
+              </>
+            ),
+          },
+          
     ];
 
     if (isLoading) return <p>Cargando...</p>;

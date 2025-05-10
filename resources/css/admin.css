@@ -110,6 +110,22 @@
     font-weight: 500;
     transition: background-color 0.3s ease;
   }
+
+  /* en tu archivo CSS global */
+.ant-btn-primary {
+    background-color: var(--negro);
+    color: white;
+    border: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: var(--color-secundario);
+  }
+  
   
   .btn-cancelar:hover {
     background-color: #e6e6e6;

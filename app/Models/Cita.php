@@ -16,6 +16,12 @@ class Cita extends Model
     // Llave primaria
     protected $primaryKey = 'id_cita';
 
+    
+    // Indicar que la llave primaria es de tipo string
+    protected $keyType = 'string';
+
+    // Desactivar incremento automático de la llave primaria
+    public $incrementing = false;
 
 
 
@@ -27,6 +33,7 @@ class Cita extends Model
         'id_servicio', 
         'fecha', 
         'hora', 
+        'descripcion', 
         'estado',
         'cliente_cedula', 
         'cliente_nombre', 

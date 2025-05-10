@@ -32,13 +32,15 @@
     cursor: pointer;
 }
 
-.btn_table{
+.btn_table {
     display: flex;
     gap: 1rem;
+   
 }
 
 .btn_delete {
     background-color: red;
+ 
 }
 
 .btn_edit {
@@ -52,4 +54,3 @@
 .btn_edit:hover {
     background-color: #7ca9d9;
 }
-

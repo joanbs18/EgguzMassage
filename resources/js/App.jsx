@@ -171,7 +171,7 @@ function App() {
                         }
                     />
                     <Route
-                        path="gestion"
+                        path="citas"
                         element={
                             <PrivateRoute>
                                 <Suspense

@@ -29,25 +29,24 @@ export default function BarChart() {
   if (isLoading) return <p>Cargando...</p>;
   if (isError) return <p>Error al cargar los datos.</p>;
 
-  // Validar que sea un array y tenga datos
-  if (!Array.isArray(data) || data.length === 0) {
-    return (
-      <div className='card card__full' style={{ width: '100%', padding: '20px' }}>
-        <h3>Citas mensuales</h3>
-        <p>No hay datos disponibles para mostrar.</p>
-      </div>
-    );
+  // Inicializar todos los meses con 0 citas
+  const citasPorMes = Array(12).fill(0);
+
+  // Si hay datos, llenar los meses correspondientes
+  if (Array.isArray(data)) {
+    data.forEach(({ mes, total }) => {
+      if (mes >= 1 && mes <= 12) {
+        citasPorMes[mes - 1] = total;
+      }
+    });
   }
 
-  const labels = data.map(item => meses[item.mes - 1]);
-  const valores = data.map(item => item.total);
-
   const chartData = {
-    labels,
+    labels: meses,
     datasets: [
       {
         label: 'Citas por mes',
-        data: valores,
+        data: citasPorMes,
         backgroundColor: '#a3d4f8',
         borderColor: 'rgb(75, 192, 192)',
         borderWidth: 1,
