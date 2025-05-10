@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="es" style="box-sizing: border-box;font-size: 62.5%;">
-  <head style="box-sizing: inherit;">
+  <head>
     <meta charset="UTF-8" style="box-sizing: inherit;">
-    <title style="box-sizing: inherit;">Confirmación de Cita</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" style="box-sizing: inherit;">
-        <link rel="preconnect" href="https://fonts.googleapis.com" style="box-sizing: inherit;">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin style="box-sizing: inherit;">
-    
-
-    
-    
+    <title>Confirmación de Cita</title>
+   
   </head>
 
   <body style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;color: #3c3c3d;font-size: 1.6rem;line-height: 2;background-color: #f7f7f7;">
