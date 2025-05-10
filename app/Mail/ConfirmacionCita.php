@@ -19,7 +19,7 @@ class ConfirmacionCita extends Mailable
 
     public function build()
     {
-        return $this->subject('Confirmación de Cita')
+        return $this->subject('Confirmación de Cita en Egguz Massage')
                     ->view('emails.confirmarCita');
     }
 }
