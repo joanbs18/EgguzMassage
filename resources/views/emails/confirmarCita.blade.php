@@ -6,9 +6,9 @@
    
   </head>
 
-  <body style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;color: #3c3c3d;font-size: 16px;line-height: 2;background-color: #f7f7f7;">
+  <body style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;color: #242424;font-size: 16px;line-height: 2;background-color: #f7f7f7;padding: 20px;margin: 0;">
     <main class="main" style="box-sizing: inherit;width: min(90%, 120rem);margin: 0 auto;">
-      <h1 style="box-sizing: inherit;line-height: 1.2;font-size: 48px;">Confirmación de Cita con Egguz Massage</h1>
+      <h1 style="box-sizing: inherit;line-height: 1.2;font-size: 30px;">Confirmación de Cita con Egguz Massage</h1>
       <p style="box-sizing: inherit;">Hola {{ $cita['cliente_nombre'] }},</p>
 
       <p style="box-sizing: inherit;">
@@ -28,7 +28,7 @@
 
       <p style="box-sizing: inherit;">Gracias por utilizar nuestros servicios. ¡Esperamos verte pronto!</p>
 
-      <p class="dancing" style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;font-size: 3.5rem;">— El equipo de Egguz Massage</p>
+      <p class="dancing" style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;font-size: 25px;">— El equipo de Egguz Massage</p>
 
       <p style="box-sizing: inherit;">
         <a           href="https://www.google.com/calendar/render?action=TEMPLATE&text=Confirmación%20de%20Cita&details=Tu%20cita%20ha%20sido%20registrada%20exitosamente.&location=Egguz%20Massage%2C%20Avenida%20Principal%20123%2C%20Ciudad%20Ejemplo&dates={{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->setTimezone('UTC')->format('Ymd\THis\Z') }}/{{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->addHour()->setTimezone('UTC')->format('Ymd\THis\Z') }}&ctz=America%2FCosta_Rica"
@@ -44,7 +44,7 @@
       </p>
 
       <div class="container-social" style="box-sizing: inherit;display: flex;justify-content: center;align-items: center;flex-direction: column;height: auto;background-color: #a3d4f8;padding: 4rem 2rem;color: #fff;">
-        <img src="/images/Elberth Logo-blanco.webp" alt="Elberth Logo" style="box-sizing: inherit;max-width: 100%;max-height: 35rem;">
+        <img src="https://drive.google.com/file/d/1s0Kn0uXhSCGGd9TzILhVYnxYVRNitSKq/view?usp=sharing" alt="Elberth Logo" style="box-sizing: inherit;max-width: 100%;max-height: 35rem;">
         <div class="social-media" style="box-sizing: inherit;display: flex;">
           <h3 style="box-sizing: inherit;line-height: 1.2;font-size: 3.2rem;">Redes Sociales</h3>
           <ul class="example-2" style="box-sizing: inherit;list-style: none;display: flex;justify-content: center;align-items: center;">

@@ -32,7 +32,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Masajes Profesionales | Egguz Massage" />
     <meta name="twitter:description" content="Masajes relajantes y terapéuticos en Costa Rica. Reserva tu cita hoy mismo." />
-    <meta name="twitter:image" content="https://tusitio.com/images/og-preview.jpg" />
+    <meta name="twitter:image" content="https://drive.google.com/file/d/1s0Kn0uXhSCGGd9TzILhVYnxYVRNitSKq/view?usp=sharing" />
     <title>Masages | Egguz Massage</title>
     
     @viteReactRefresh
