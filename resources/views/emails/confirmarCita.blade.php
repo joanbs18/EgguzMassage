@@ -337,7 +337,7 @@
 
                                                                                                 <img alt="Elberth Logo"
                                                                                                     height="auto"
-                                                                                                    src="https://egguzmassage.com/images/Elbeth logo email.png"
+                                                                                                    src="https://egguzmassage.com/images/Elbeth%20logo%20email.png"
                                                                                                     style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
                                                                                                     width="150" />
 
