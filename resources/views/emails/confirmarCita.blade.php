@@ -149,7 +149,7 @@
       <div
          style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
       ><ul>
-            <li><strong>Servicio:</strong> {{ $cita['nombre_servicio'] }}</li>
+            <li><strong>Servicio:</strong> {{ $cita['servicio.nombre_servicio'] }}</li>
             <li><strong>Fecha:</strong> {{ $cita['fecha'] }}</li>
             <li><strong>Hora:</strong> {{ $cita['hora'] }}</li>
           </ul></div>
