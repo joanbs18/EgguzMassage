@@ -1,131 +1,538 @@
-<!DOCTYPE html>
-<html lang="es" style="box-sizing: border-box;font-size: 62.5%;">
-  <head>
-    <meta charset="UTF-8" style="box-sizing: inherit;">
-    <title>Confirmación de Cita</title>
-   
-  </head>
 
-  <body style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;color: #242424;font-size: 16px;line-height: 2;background-color: #f7f7f7;padding: 20px;margin: 0;">
-    <main class="main" style="box-sizing: inherit;width: min(90%, 120rem);margin: 0 auto;">
-      <h1 style="box-sizing: inherit;line-height: 1.2;font-size: 30px;">Confirmación de Cita con Egguz Massage</h1>
-      <p style="box-sizing: inherit;">Hola {{ $cita['cliente_nombre'] }},</p>
+    <!doctype html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+      <head>
+        <title>
+          Confirmación de Cita
+        </title>
+        <!--[if !mso]><!-- -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--<![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+          #outlook a { padding:0; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }
+        </style>
+        <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type="text/css">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        
+      <!--[if !mso]><!-->
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+        <style type="text/css">
+          @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+        </style>
+      <!--<![endif]-->
 
-      <p style="box-sizing: inherit;">
-        Tu cita ha sido registrada exitosamente. A continuación, los detalles:
+    
+        
+    <style type="text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    
+  
+        <style type="text/css">
+        
+        
+
+    @media only screen and (max-width:480px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+  
+        </style>
+        
+        
+      </head>
+      <body style="background-color:#f7f7f7;">
+        
+        
+      <div
+         style="background-color:#f7f7f7;"
+      >
+        
+      
+      <!--[if mso | IE]>
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div  style="margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;"
+              >
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+            
+      <div
+         class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+      >
+        
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:24px;font-weight:bold;line-height:1;text-align:left;color:#3c3c3d;"
+      >Confirmación de Cita con Egguz Massage</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#3c3c3d;"
+      >Hola {{ $cita['cliente_nombre'] }},</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#3c3c3d;"
+      >Tu cita ha sido registrada exitosamente. A continuación, los detalles:</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      ><ul>
+            <li><strong>Servicio:</strong> {{ $cita['nombre_servicio'] }}</li>
+            <li><strong>Fecha:</strong> {{ $cita['fecha'] }}</li>
+            <li><strong>Hora:</strong> {{ $cita['hora'] }}</li>
+          </ul></div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      >Por favor llega 5-10 minutos antes de tu cita para garantizar que aproveches al máximo tu tiempo.</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      >Gracias por utilizar nuestros servicios. ¡Esperamos verte pronto!</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" class="dancing" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      >— El equipo de Egguz Massage</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;"
+      >
+        <tr>
+          <td
+             align="center" bgcolor="#a3d4f8" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#a3d4f8;" valign="middle"
+          >
+            <a
+               href="https://www.google.com/calendar/render?action=TEMPLATE&text=Confirmación%20de%20Cita&details=Tu%20cita%20ha%20sido%20registrada%20exitosamente.&location=Egguz%20Massage%2C%20Avenida%20Principal%20123%2C%20Ciudad%20Ejemplo&dates={{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->setTimezone('UTC')->format('Ymd\THis\Z') }}/{{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->addHour()->setTimezone('UTC')->format('Ymd\THis\Z') }}&ctz=America%2FCosta_Rica" style="display:inline-block;background:#a3d4f8;color:white;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_blank"
+            >
+              Agendar en Google Calendar
+            </a>
+          </td>
+        </tr>
+      </table>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;"
+      >
+        <tr>
+          <td
+             align="center" bgcolor="#a3d4f8" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#a3d4f8;" valign="middle"
+          >
+            <a
+               href="href="https://www.google.com/maps?q=10.467627,-84.970338&hl=es"" style="display:inline-block;background:#a3d4f8;color:white;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;" target="_blank"
+            >
+              Ver en Google Maps
+            </a>
+          </td>
+        </tr>
+      </table>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <p
+         style="border-top:solid 4px #cccccc;font-size:1px;margin:0px auto;width:100%;"
+      >
       </p>
-
-      <ul style="box-sizing: inherit;list-style: none;">
-        <li style="box-sizing: inherit;"><strong style="box-sizing: inherit;">Servicio:</strong> {{ $cita['id_servicio'] }}</li>
-        <li style="box-sizing: inherit;"><strong style="box-sizing: inherit;">Fecha:</strong> {{ $cita['fecha'] }}</li>
-        <li style="box-sizing: inherit;"><strong style="box-sizing: inherit;">Hora:</strong> {{ $cita['hora'] }}</li>
-      </ul>
-
-      <p style="box-sizing: inherit;">
-        Por favor llega 5-10 minutos antes de tu cita para garantizar que
-        aproveches al máximo tu tiempo.
-      </p>
-
-      <p style="box-sizing: inherit;">Gracias por utilizar nuestros servicios. ¡Esperamos verte pronto!</p>
-
-      <p class="dancing" style="box-sizing: inherit;font-family: Arial, Helvetica, sans-serif;font-size: 25px;">— El equipo de Egguz Massage</p>
-
-      <p style="box-sizing: inherit;">
-        <a           href="https://www.google.com/calendar/render?action=TEMPLATE&text=Confirmación%20de%20Cita&details=Tu%20cita%20ha%20sido%20registrada%20exitosamente.&location=Egguz%20Massage%2C%20Avenida%20Principal%20123%2C%20Ciudad%20Ejemplo&dates={{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->setTimezone('UTC')->format('Ymd\THis\Z') }}/{{ \Carbon\Carbon::parse($cita['fecha'] . ' ' . $cita['hora'], 'America/Costa_Rica')->addHour()->setTimezone('UTC')->format('Ymd\THis\Z') }}&ctz=America%2FCosta_Rica"
->
-          Agendar en Google Calendar
-        </a>
-      </p>
-
-      <p style="box-sizing: inherit;">
-        <a href="https://www.google.com/maps?q=10.467627,-84.970338&hl=es" target="_blank" class="google-maps-btn" style="box-sizing: inherit;text-decoration: none;background-color: #a3d4f8;color: white;font-size: 16px;font-weight: bold;padding: 12px 20px;border-radius: 5px;display: inline-block;transition: background-color 0.3s ease;margin: 10px 0;">
-          Ver en Google Maps
-        </a>
-      </p>
-
-      <div class="container-social" style="box-sizing: inherit;display: flex;justify-content: center;align-items: center;flex-direction: column;height: auto;background-color: #a3d4f8;padding: 4rem 2rem;color: #fff;">
-        <img src="https://drive.google.com/file/d/1s0Kn0uXhSCGGd9TzILhVYnxYVRNitSKq/view?usp=sharing" alt="Elberth Logo" style="box-sizing: inherit;max-width: 100%;max-height: 35rem;">
-        <div class="social-media" style="box-sizing: inherit;display: flex;">
-          <h3 style="box-sizing: inherit;line-height: 1.2;font-size: 3.2rem;">Redes Sociales</h3>
-          <ul class="example-2" style="box-sizing: inherit;list-style: none;display: flex;justify-content: center;align-items: center;">
-            <li class="icon-content" style="box-sizing: inherit;margin: 0 10px;position: relative;">
-              <a href="https://wa.me/50688494151" aria-label="WhatsApp" data-social="WhatsApp" style="box-sizing: inherit;text-decoration: none;position: relative;overflow: hidden;display: flex;justify-content: center;align-items: center;width: 50px;height: 50px;border-radius: 20%;color: #4d4d4d;background-color: #ffff;transition: all 0.3s ease-in-out;">
-                <div class="filled" style="box-sizing: inherit;position: absolute;top: auto;bottom: 0;left: 0;width: 100%;height: 0;background-color: #1db954;transition: all 0.3s ease-in-out;color: #fff;"></div>
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  color="#a3d4f8"
-                  fill="none"
-                >
-                  <path
-                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.3789 2.27907 14.6926 2.78382 15.8877C3.06278 16.5481 3.20226 16.8784 3.21953 17.128C3.2368 17.3776 3.16334 17.6521 3.01642 18.2012L2 22L5.79877 20.9836C6.34788 20.8367 6.62244 20.7632 6.87202 20.7805C7.12161 20.7977 7.45185 20.9372 8.11235 21.2162C9.30745 21.7209 10.6211 22 12 22Z"
-                    stroke="#a3d4f8"
-                    stroke-width="1.5"
-                    stroke-linejoin="round"
-                  ></path>
-                  <path
-                    d="M8.58815 12.3773L9.45909 11.2956C9.82616 10.8397 10.2799 10.4153 10.3155 9.80826C10.3244 9.65494 10.2166 8.96657 10.0008 7.58986C9.91601 7.04881 9.41086 7 8.97332 7C8.40314 7 8.11805 7 7.83495 7.12931C7.47714 7.29275 7.10979 7.75231 7.02917 8.13733C6.96539 8.44196 7.01279 8.65187 7.10759 9.07169C7.51023 10.8548 8.45481 12.6158 9.91948 14.0805C11.3842 15.5452 13.1452 16.4898 14.9283 16.8924C15.3481 16.9872 15.558 17.0346 15.8627 16.9708C16.2477 16.8902 16.7072 16.5229 16.8707 16.165C17 15.8819 17 15.5969 17 15.0267C17 14.5891 16.9512 14.084 16.4101 13.9992C15.0334 13.7834 14.3451 13.6756 14.1917 13.6845C13.5847 13.7201 13.1603 14.1738 12.7044 14.5409L11.6227 15.4118"
-                    stroke="#a3d4f8"
-                    stroke-width="1.5"
-                  ></path>
-                </svg>
-              </a>
-              <div class="tooltip" style="box-sizing: inherit;position: absolute;top: -30px;left: 50%;transform: translateX(-50%);color: #fff;padding: 6px 10px;border-radius: 15px;opacity: 0;visibility: hidden;font-size: 14px;transition: all 0.3s ease;">WhatsApp</div>
-            </li>
-            <li class="icon-content" style="box-sizing: inherit;margin: 0 10px;position: relative;">
-              <a href="https://www.Instagram.com/" aria-label="Instagram" data-social="Instagram" style="box-sizing: inherit;text-decoration: none;position: relative;overflow: hidden;display: flex;justify-content: center;align-items: center;width: 50px;height: 50px;border-radius: 20%;color: #4d4d4d;background-color: #ffff;transition: all 0.3s ease-in-out;">
-                <div class="filled" style="box-sizing: inherit;position: absolute;top: auto;bottom: 0;left: 0;width: 100%;height: 0;background-color: #bd081c;transition: all 0.3s ease-in-out;"></div>
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  color="#a3d4f8"
-                  fill="none"
-                >
-                  <path
-                    d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-                    stroke="#a3d4f8"
-                    stroke-width="1.5"
-                    stroke-linejoin="round"
-                  ></path>
-                  <path
-                    d="M16.5 12C16.5 14.4853 14.4853 16.5 12 16.5C9.51472 16.5 7.5 14.4853 7.5 12C7.5 9.51472 9.51472 7.5 12 7.5C14.4853 7.5 16.5 9.51472 16.5 12Z"
-                    stroke="#a3d4f8"
-                    stroke-width="1.5"
-                  ></path>
-                  <path
-                    d="M17.5078 6.5L17.4988 6.5"
-                    stroke="#a3d4f8"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-              </a>
-              <div class="tooltip" style="box-sizing: inherit;position: absolute;top: -30px;left: 50%;transform: translateX(-50%);color: #fff;padding: 6px 10px;border-radius: 15px;opacity: 0;visibility: hidden;font-size: 14px;transition: all 0.3s ease;">Instagram</div>
-            </li>
-          </ul>
-        </div>
+      
+      <!--[if mso | IE]>
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 4px #cccccc;font-size:1px;margin:0px auto;width:550px;" role="presentation" width="550px"
+        >
+          <tr>
+            <td style="height:0;line-height:0;">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+    
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 style="font-size:0px;padding:20px 0;word-break:break-word;"
+              >
+                
+      
+      <!--[if mso | IE]>
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div  style="background:#a3d4f8;background-color:#a3d4f8;margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#a3d4f8;background-color:#a3d4f8;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;"
+              >
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+            
+      <div
+         class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+      >
+        
+            <tr>
+              <td
+                 align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;"
+      >
+        <tbody>
+          <tr>
+            <td  style="width:150px;">
+              
+      <img
+         alt="Elberth Logo" height="auto" src="https://egguzmassage.com/images/Elberth%20Logo-blanco.webp" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="center" style="font-size:0px;padding:10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:20px;line-height:1;text-align:center;color:#ffffff;"
+      >Síguenos en redes sociales</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="center" style="font-size:0px;padding:10px;word-break:break-word;"
+              >
+                
+      
+     <!--[if mso | IE]>
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
+      >
+        <tr>
+      
+              <td>
+            <![endif]-->
+              <table
+                 align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;"
+              >
+                
+      <tr
+        
+      >
+        <td  style="padding:4px;">
+          <table
+             border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#25D366;border-radius:3px;width:30px;"
+          >
+            <tr>
+              <td  style="font-size:0;height:30px;vertical-align:middle;width:30px;">
+                <a  href="https://wa.me/50688494151" target="_blank">
+                    <img
+                       height="30" style="border-radius:3px;display:block;" width="30"
+                    />
+                  </a>
+                </td>
+              </tr>
+          </table>
+        </td>
+        
+          <td  style="vertical-align:middle;">
+            <a
+                 href="https://wa.me/50688494151" style="color:#333333;font-size:15px;font-family:Ubuntu, Helvetica, Arial, sans-serif;line-height:22px;text-decoration:none;" target="_blank">
+              WhatsApp
+            </a>
+          </td>
+          
+      </tr>
+    
+              </table>
+            <!--[if mso | IE]>
+              </td>
+            
+              <td>
+            <![endif]-->
+              <table
+                 align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;"
+              >
+                
+      <tr
+        
+      >
+        <td  style="padding:4px;">
+          <table
+             border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#E4405F;border-radius:3px;width:30px;"
+          >
+            <tr>
+              <td  style="font-size:0;height:30px;vertical-align:middle;width:30px;">
+                <a  href="https://instagram.com/" target="_blank">
+                    <img
+                       height="30" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/instagram.png" style="border-radius:3px;display:block;" width="30"
+                    />
+                  </a>
+                </td>
+              </tr>
+          </table>
+        </td>
+        
+          <td  style="vertical-align:middle;">
+            <a
+                 href="https://instagram.com/" style="color:#333333;font-size:15px;font-family:Ubuntu, Helvetica, Arial, sans-serif;line-height:22px;text-decoration:none;" target="_blank">
+              Instagram
+            </a>
+          </td>
+          
+      </tr>
+    
+              </table>
+            <!--[if mso | IE]>
+              </td>
+            
+          </tr>
+        </table>
+      <![endif]-->
+    
+    
+              </td>
+            </tr>
+          
+      </table>
+    
       </div>
-
-      <!-- Información de contacto para atención al cliente -->
-      <p style="box-sizing: inherit;">
-        Si deseas reprogramar o cancelar tu cita, puedes hacerlo hasta 24 horas
-        antes respondiendo a este correo o llamándonos al:
-      </p>
-      <ul style="box-sizing: inherit;list-style: none;">
-        <li style="box-sizing: inherit;">
-          <strong style="box-sizing: inherit;">WhatsApp:</strong>
-          <a href="https://wa.me/50688494151" target="_blank" style="box-sizing: inherit;text-decoration: none;">+506 8849 4151</a>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      >Si deseas reprogramar o cancelar tu cita, puedes hacerlo hasta 24 horas
+        antes respondiendo a este correo o llamándonos al:</div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#000000;"
+      ><ul>
+        <li>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/50688494151" target="_blank">+506 8849 4151</a>
         </li>
-        <li style="box-sizing: inherit;">
-          <strong style="box-sizing: inherit;">Correo electrónico:</strong>
-          <a href="mailto:elberth@egguzmassage.com" style="box-sizing: inherit;text-decoration: none;">elberth@egguzmassage.com</a>
+        <li>
+          <strong>Correo electrónico:</strong>
+          <a href="mailto:elberth@egguzmassage.com">elberth@egguzmassage.com</a>
         </li>
-      </ul>
-    </main>
-  </body>
-</html>
+      </ul></div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+      </div>
+    
+      </body>
+    </html>
+  
