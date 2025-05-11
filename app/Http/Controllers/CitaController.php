@@ -41,7 +41,6 @@ class CitaController extends Controller
         // Crear la cita
         $cita = Cita::create($validated);
         $cita->load('servicio');
-        dd($validated);
         Mail::to($validated['cliente_email'])->send(new ConfirmacionCita($cita));
         return response()->json(['message' => 'Cita creada exitosamente', 'cita' => $cita], 201);
     }
