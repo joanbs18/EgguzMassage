@@ -28,8 +28,8 @@
     <meta property="og:title" content="Reserva tu cita | Egguz Massage" />
     <meta property="og:description"
         content="Haz tu cita para masajes terapéuticos y relajantes en Egguz Massage. Calidad y bienestar garantizados." />
-    <meta property="og:image" content="https://tusitio.com/images/og-preview.webp" />
-    <meta property="og:url" content="https://tusitio.com/citas" />
+    <meta property="og:image" content="https://egguzmassage.com/images/Elberth Logo.webp" />
+    <meta property="og:url" content="https://egguzmassage.com/citas" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
@@ -37,7 +37,7 @@
     <meta name="twitter:title" content="Reserva tu cita | Egguz Massage" />
     <meta name="twitter:description"
         content="Masajes profesionales en Costa Rica. Reserva online fácilmente en Egguz Massage." />
-    <meta name="twitter:image" content="https://tusitio.com/images/og-preview.webp" />
+    <meta name="twitter:image" content="https://egguzmassage.com/images/Elberth Logo.webp" />
     @viteReactRefresh
     @vite('resources/js/main.jsx')
 </head>

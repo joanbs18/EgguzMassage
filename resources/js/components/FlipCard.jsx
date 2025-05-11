@@ -15,19 +15,20 @@ export default function FlipCard() {
                     <p>Masajista · Fisioterapeuta</p>
                 </div>
                 <div className="flip-card-back">
-                    <p className="title">Acerca de mí</p>
-                    <ul>
-                        <li>✔️ Licenciado en Educación Física</li>
-                        <li>✔️ Especializado en terapia física</li>
-                        <li>✔️ Masajista terapéutico</li>
-                        <li>✔️ Experiencia en recuperación muscular</li>
-                        <li>✔️ Técnicas de relajación</li>
-                        <li>✔️ Rehabilitación física personalizada</li>
+                    <p className="title" style={{fontSize: "2.5rem"}}>Acerca de mí</p>
+                    <ul style={{ listStyleType: "none", fontSize: "2.5rem" }}>
+                        <li>° Licenciado en Educación Física</li>
+                        <li>° Especializado en terapia física</li>
+                        <li>° Masajista terapéutico</li>
+                        <li>° Experiencia en recuperación muscular</li>
+                        <li>° Técnicas de relajación</li>
+                        <li>° Rehabilitación física personalizada</li>
                     </ul>
-                    <p>
-                        📞 8849-4151
+                    <p style={{ fontSize: "2.5rem" }}>
                         <br />
-                        📧 elbertguzman@gmail.com
+                        +506 8849-4151
+                        <br />
+                         elberth@egguzmassage.com
                     </p>
                 </div>
             </div>
