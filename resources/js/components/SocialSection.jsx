@@ -6,7 +6,7 @@ const SocialSection = () => {
   return (
     <section className="social">
       <div className="image-container">
-        <img src="/images/social.webp" alt="Imagen social" className="blurred-image" /> 
+        {/* <img src="/images/social.webp" alt="Imagen social" className="blurred-image" />  */}
         <div className="overlay">
           <h2>Transformación Corporal y Bienestar</h2>
           <p>¡Descubre Nuestras Promociones Exclusivas de Masajes y Fisioterapia!</p>

@@ -45,7 +45,7 @@ export default function HeaderAdmin({ toggleSidebar }) {
                 </label>
                 <img
                     className="logo"
-                    src="/images/Elberth Logo mini.webp"
+                    src="/images/Elberthlogomini.webp"
                     alt="Logo egguz"
                 />
             </div>
