@@ -248,7 +248,7 @@
                                                     <td align="center" bgcolor="#a3d4f8" role="presentation"
                                                         style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#a3d4f8;"
                                                         valign="middle">
-                                                        <a href="href="https://www.google.com/maps?q=10.467627,-84.970338&hl=es""
+                                                        <a href ="https://www.google.com/maps?q=10.467627,-84.970338&hl=es"
                                                             style="display:inline-block;background:#a3d4f8;color:white;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;font-weight:normal;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:3px;"
                                                             target="_blank">
                                                             Ver en Google Maps
@@ -337,7 +337,7 @@
 
                                                                                                 <img alt="Elberth Logo"
                                                                                                     height="auto"
-                                                                                                    src="https://egguzmassage.com/images/Elberth%20Logo-blanco.webp"
+                                                                                                    src="https://egguzmassage.com/images/Elbeth logo email.png"
                                                                                                     style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
                                                                                                     width="150" />
 
