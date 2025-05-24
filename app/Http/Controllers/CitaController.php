@@ -6,6 +6,7 @@ use App\Models\Cita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Mail\ConfirmacionCita;
+use App\Mail\ContactoMail;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 
@@ -42,6 +43,7 @@ class CitaController extends Controller
         $cita = Cita::create($validated);
         $cita->load('servicio');
         Mail::to($validated['cliente_email'])->send(new ConfirmacionCita($cita));
+       Mail::to('joansolano80@gmail.com')->send(new ContactoMail($cita));
         return response()->json(['message' => 'Cita creada exitosamente', 'cita' => $cita], 201);
     }
 

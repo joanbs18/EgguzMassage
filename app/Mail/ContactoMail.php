@@ -8,18 +8,18 @@ use Illuminate\Queue\SerializesModels;
 
 class ContactoMail extends Mailable
 {
-    use Queueable, SerializesModels;
+   use Queueable, SerializesModels;
 
-    public $datos;
+    public $cita;
 
-    public function __construct($datos)
+    public function __construct($cita)
     {
-        $this->datos = $datos;
+        $this->cita = $cita;
     }
 
     public function build()
     {
-        return $this->subject('Nuevo mensaje de contacto')
-                    ->view('emails.contacto');
+        return $this->subject('Nueva Cita en Egguz Massage')
+                    ->view('emails.ContactoMail');
     }
 }
