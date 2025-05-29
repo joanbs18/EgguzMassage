@@ -20,6 +20,6 @@ class ContactoMail extends Mailable
     public function build()
     {
         return $this->subject('Nueva Cita en Egguz Massage')
-                    ->view('emails.ContactoMail');
+                    ->view('emails.contacto');
     }
 }
