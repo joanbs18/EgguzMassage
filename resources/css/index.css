@@ -148,7 +148,7 @@
     width: 100%;
     height: 40rem;
     margin-top: 3.2rem;
-    background-image: url('images/social.webp'); 
+    background-image: url('/images/social-social.webp'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Esto hace el efecto fijo */

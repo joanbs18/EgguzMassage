@@ -43,7 +43,7 @@ class CitaController extends Controller
         $cita = Cita::create($validated);
         $cita->load('servicio');
         Mail::to($validated['cliente_email'])->send(new ConfirmacionCita($cita));
-       Mail::to('joansolano80@gmail.com')->send(new ContactoMail($cita));
+       Mail::to('egguzmanc@utn.ac.cr')->send(new ContactoMail($cita));
         return response()->json(['message' => 'Cita creada exitosamente', 'cita' => $cita], 201);
     }
 

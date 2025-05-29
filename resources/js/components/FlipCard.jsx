@@ -12,13 +12,12 @@ export default function FlipCard() {
                         height={80}
                     />
                     <h1 className="title">Elberth Guzmán</h1>
-                    <p>Masajista · Fisioterapeuta</p>
+                    <p>Masajista · Físico Terapeuta</p>
                 </div>
                 <div className="flip-card-back">
                     <p className="title" style={{fontSize: "2.5rem"}}>Acerca de mí</p>
                     <ul style={{ listStyleType: "none", fontSize: "2.5rem" }}>
                         <li>° Licenciado en Educación Física</li>
-                        <li>° Especializado en terapia física</li>
                         <li>° Masajista terapéutico</li>
                         <li>° Experiencia en recuperación muscular</li>
                         <li>° Técnicas de relajación</li>
