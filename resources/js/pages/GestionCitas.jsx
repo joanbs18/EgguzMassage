@@ -1,4 +1,4 @@
-import { useQuery,useQueryClient  } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import Tab from "../components/Tab";
 import Pencil from "../../icons/pencil";
@@ -6,11 +6,12 @@ import Delete from "../../icons/delete";
 import Table from "../components/Table";
 import Titulo from "../components/Titulo";
 import FormCita from "../components/FormCita";
-import { Popconfirm, message } from 'antd';
-
+import { DatePicker, Popconfirm, message } from "antd";
 
 export default function GestionCitas() {
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedDate, setSelectedDate] = useState(null);
+
     const queryClient = useQueryClient();
 
     const fetchCitas = async () => {
@@ -40,12 +41,14 @@ export default function GestionCitas() {
         queryFn: fetchCitasHoy,
     });
 
-
     const handleDelete = async (idCita) => {
         try {
-            const response = await fetch(`https://egguzmassage.com/api/citas/${idCita}`, {
-                method: 'DELETE',
-            });
+            const response = await fetch(
+                `https://egguzmassage.com/api/citas/${idCita}`,
+                {
+                    method: "DELETE",
+                }
+            );
 
             if (!response.ok) {
                 throw new Error("Error al eliminar la cita");
@@ -59,16 +62,26 @@ export default function GestionCitas() {
         }
     };
 
+    const handleDateChange = (date, dateString) => {
+        setSelectedDate(dateString); // formato: YYYY-MM-DD
+    };
+
     // Filtrar citas según el término de búsqueda
     const filteredData =
-        data?.filter(
-            (row) =>
+        data?.filter((row) => {
+            const matchesSearchTerm =
                 row.cliente_nombre
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase()) ||
                 row.fecha.includes(searchTerm) ||
-                row.hora.includes(searchTerm)
-        ) || [];
+                row.hora.includes(searchTerm);
+
+            const matchesDate = selectedDate
+                ? row.fecha === selectedDate
+                : true;
+
+            return matchesSearchTerm && matchesDate;
+        }) || [];
 
     const items = [
         {
@@ -76,13 +89,27 @@ export default function GestionCitas() {
             label: "Gestión de citas",
             children: (
                 <>
-                    <input 
-                        type="text"
-                        placeholder="Buscar cita..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                       style={{ marginBottom: "20px", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} 
-                    />
+                    <div className="search-date-filter">
+                        <input
+                            type="text"
+                            placeholder="Buscar cita..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            style={{
+                                marginBottom: "20px",
+                                padding: "10px",
+                                borderRadius: "5px",
+                                border: "1px solid #d9d9d9",
+                        
+                            }}
+                        />
+                        <DatePicker
+                            onChange={handleDateChange}
+                            placeholder="Filtrar por fecha"
+                            style={{ marginBottom: "20px", padding: "8px" }}
+                        />
+                    </div>
+
                     <Table
                         data={filteredData}
                         columns={[
@@ -151,65 +178,74 @@ export default function GestionCitas() {
             key: "3",
             label: "Citas para Hoy",
             children: (
-              <>
-                {isLoadingCitasHoy ? (
-                  <p>Cargando citas de hoy...</p>
-                ) : errorCitasHoy ? (
-                  <p>Error al cargar las citas de hoy</p>
-                ) : Array.isArray(citasHoy) && citasHoy.length === 0 ? (
-                  <p>No hay citas programadas para hoy.</p>
-                ) : (
-                  <Table
-                    data={citasHoy}
-                    columns={[
-                      "Cliente",
-                      "Servicio",
-                      "Fecha",
-                      "Hora",
-                      "Correo",
-                      "Teléfono",
-                      "Estado",
-                      "Acción",
-                    ]}
-                    renderRow={(row, index) => (
-                      <tr key={index}>
-                        <td>{row.cliente_nombre}</td>
-                        <td>{row.servicio.nombre_servicio}</td>
-                        <td>{row.fecha}</td>
-                        <td>{row.hora}</td>
-                        <td>{row.cliente_email}</td>
-                        <td>{row.cliente_telefono}</td>
-                        <td>{row.estado === 1 ? "Activa" : "Cancelada"}</td>
-                        <td className="btn_table">
-                          <button
-                            className="btn_edit"
-                            onClick={() =>
-                              alert(`Editar Cita: ${row.cliente_nombre}`)
-                            }
-                          >
-                            <Pencil />
-                          </button>
-                          <Popconfirm
-                            title="¿Eliminar cita?"
-                            description="¿Está seguro que desea eliminar esta cita?"
-                            onConfirm={() => handleDelete(row.id_cita)}
-                            onCancel={() => message.info("Cancelado")}
-                            okText="Sí"
-                            cancelText="No"
-                          >
-                            <button className="btn_delete">
-                              <Delete />
-                            </button>
-                          </Popconfirm>
-                        </td>
-                      </tr>
+                <>
+                    {isLoadingCitasHoy ? (
+                        <p>Cargando citas de hoy...</p>
+                    ) : errorCitasHoy ? (
+                        <p>Error al cargar las citas de hoy</p>
+                    ) : Array.isArray(citasHoy) && citasHoy.length === 0 ? (
+                        <p>No hay citas programadas para hoy.</p>
+                    ) : (
+                        <Table
+                            data={citasHoy}
+                            columns={[
+                                "Cliente",
+                                "Servicio",
+                                "Fecha",
+                                "Hora",
+                                "Correo",
+                                "Teléfono",
+                                "Estado",
+                                "Acción",
+                            ]}
+                            renderRow={(row, index) => (
+                                <tr key={index}>
+                                    <td>{row.cliente_nombre}</td>
+                                    <td>{row.servicio.nombre_servicio}</td>
+                                    <td>{row.fecha}</td>
+                                    <td>{row.hora}</td>
+                                    <td>{row.cliente_email}</td>
+                                    <td>{row.cliente_telefono}</td>
+                                    <td>
+                                        {row.estado === 1
+                                            ? "Activa"
+                                            : "Cancelada"}
+                                    </td>
+                                    <td className="btn_table">
+                                        <button
+                                            className="btn_edit"
+                                            onClick={() =>
+                                                alert(
+                                                    `Editar Cita: ${row.cliente_nombre}`
+                                                )
+                                            }
+                                        >
+                                            <Pencil />
+                                        </button>
+                                        <Popconfirm
+                                            title="¿Eliminar cita?"
+                                            description="¿Está seguro que desea eliminar esta cita?"
+                                            onConfirm={() =>
+                                                handleDelete(row.id_cita)
+                                            }
+                                            onCancel={() =>
+                                                message.info("Cancelado")
+                                            }
+                                            okText="Sí"
+                                            cancelText="No"
+                                        >
+                                            <button className="btn_delete">
+                                                <Delete />
+                                            </button>
+                                        </Popconfirm>
+                                    </td>
+                                </tr>
+                            )}
+                        />
                     )}
-                  />
-                )}
-              </>
+                </>
             ),
-          },
-          
+        },
     ];
 
     if (isLoading) return <p>Cargando...</p>;

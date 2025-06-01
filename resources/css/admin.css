@@ -130,5 +130,10 @@
   .btn-cancelar:hover {
     background-color: #e6e6e6;
   }
+
+  .search-date-filter{
+    display: flex;
+    gap: 1rem;
+  }
   
 
