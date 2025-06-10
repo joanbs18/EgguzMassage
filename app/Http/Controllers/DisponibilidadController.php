@@ -89,7 +89,7 @@ class DisponibilidadController extends Controller
         $intervalos = [];
         while ($horario_inicio <= $horario_fin) {
             $intervalos[] = $horario_inicio->format('H:i:s');
-            $horario_inicio->addMinutes(15);
+            $horario_inicio->addMinutes(60);
         }
 
        
